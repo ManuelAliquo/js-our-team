@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+img {
+  height: 100%;
+}
+
 body {
   font-family: "Fredoka", sans-serif;
 }
@@ -10,10 +14,13 @@ h1 {
   color: #e53170;
 }
 
-#member-card {
+.member-card {
   height: 100px;
-  min-width: 350px;
   background-color: black;
+}
+
+.infos {
+  font-size: 0.9rem;
 }
 
 a {

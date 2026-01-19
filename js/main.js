@@ -44,15 +44,17 @@ const membersContainer = document.getElementById("members-row");
 
 // Per ogni membro nell'array inserisco in pagina la card completa
 for (const member of teamMembers) {
+  // Destructuring
+  const { name, role, email, img } = member;
   membersContainer.innerHTML += `
 <div class="col">
-    <div id="member-card" class="text-white d-flex">
-        <img src="./${member.img}" alt="Crew Member" />
-        <div class="ps-3 d-flex flex-column justify-content-center">
-            <h5 class="mb-0 fw-bold">${member.name.toUpperCase()}</h5>
-            <div>${member.role}</div>
-            <a class="text-decoration-none" href="mailto:${member.email}">${member.email}</a>
+    <div class="member-card text-white d-flex">
+        <img src="./${img}" alt="Crew Member" />
+        <div class="infos ps-3 d-flex flex-column justify-content-evenly">
+            <h6 class="mb-0 fw-bold">${name.toUpperCase()}</h6>
+            <div>${role}</div>
+            <a class="text-decoration-none" href="mailto:${email}">${email}</a>
         </div>
-    </div>      
+    </div>
 </div>`;
 }
