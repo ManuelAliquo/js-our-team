@@ -39,5 +39,20 @@ const teamMembers = [
 
 console.table(teamMembers);
 
-//* DOM Elements
+//* DOM Element
 const membersContainer = document.getElementById("members-row");
+
+// Per ogni membro nell'array inserisco in pagina la card completa
+for (const member of teamMembers) {
+  membersContainer.innerHTML += `
+<div class="col">
+    <div id="member-card" class="text-white d-flex">
+        <img src="./${member.img}" alt="Crew Member" />
+        <div class="ps-3 d-flex flex-column justify-content-center">
+            <h5 class="mb-0 fw-bold">${member.name.toUpperCase()}</h5>
+            <div>${member.role}</div>
+            <a class="text-decoration-none" href="mailto:${member.email}">${member.email}</a>
+        </div>
+    </div>      
+</div>`;
+}
