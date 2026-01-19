@@ -37,23 +37,44 @@ const teamMembers = [
   },
 ];
 
-console.table(teamMembers);
-
-//* DOM Element
+//* DOM Elements
 const membersContainer = document.getElementById("members-row");
+const newMemberForm = document.getElementById("new-member");
+const nameInput = document.getElementById("new-name");
+const roleInput = document.getElementById("new-role");
+const emailInput = document.getElementById("new-email");
+const imgInput = document.getElementById("new-img");
 
 // Per ogni membro nell'array inserisco in pagina la card completa
 for (const member of teamMembers) {
   // Destructuring
   const { name, role, email, img } = member;
+  membersHtml(name, role, email, img);
+}
+
+// Listener per form con prevent refresh
+newMemberForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  teamMembers.push({
+    name: nameInput.value,
+    role: roleInput.value,
+    email: emailInput.value,
+    img: imgInput.value,
+  });
+
+  membersHtml(nameInput.value, roleInput.value, emailInput.value, imgInput.value);
+});
+
+function membersHtml(memberName, memberRole, memberEmail, memberImg) {
   membersContainer.innerHTML += `
 <div class="col">
     <div class="member-card text-white d-flex">
-        <img src="./${img}" alt="Crew Member" />
+        <img src="./${memberImg}" alt="Crew Member" />
         <div class="infos ps-3 d-flex flex-column justify-content-evenly">
-            <h6 class="mb-0 fw-bold">${name.toUpperCase()}</h6>
-            <div>${role}</div>
-            <a class="text-decoration-none" href="mailto:${email}">${email}</a>
+            <h6 class="mb-0 fw-bold">${memberName.toUpperCase()}</h6>
+            <div>${memberRole}</div>
+            <a class="text-decoration-none" href="mailto:${memberEmail}">${memberEmail}</a>
         </div>
     </div>
 </div>`;
