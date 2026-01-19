@@ -38,3 +38,6 @@ const teamMembers = [
 ];
 
 console.table(teamMembers);
+
+//* DOM Elements
+const membersContainer = document.getElementById("members-row");

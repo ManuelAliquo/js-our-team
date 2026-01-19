@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fredoka", sans-serif;
+}
+
+h1 {
+  color: #e53170;
+}
+
+#member-card {
+  height: 100px;
+  min-width: 350px;
+  background-color: black;
+}
